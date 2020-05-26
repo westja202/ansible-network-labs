@@ -19,11 +19,11 @@
     - name: COLLECT OUTPUT OF SHOW COMMANDS
       ios_command:
         commands:
-          - show run | i hostname
+          - show run | i snmp
       tags: show
       register: show_output
 
-    - name: DISPLAY THE HOSTNAME
+    - name: DISPLAY THE SNMP Config
       debug:
-        msg: "The {{ show_output.stdout[0] }}"
+        msg: "The SNMP Strings are: {{ show_output.stdout }}"
       tags: show
